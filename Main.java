@@ -1,18 +1,24 @@
-import java.util.Iterator;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
 
 public class Main {
-    public static void main(String[] arags) {
-        BookShelf bookShelf = new BookShelf();
-        bookShelf.appendBook(new Book("Around the world in 80 Days"));
-        bookShelf.appendBook(new Book("ハリーポッター"));
-        bookShelf.appendBook(new Book("コナン"));
-        bookShelf.appendBook(new Book("Daddy-Long-Legs"));
-        bookShelf.appendBook(new Book("test"));
-        bookShelf.appendBook(new Book("test2"));
-        Iterator it = bookShelf.iterator();
-        while (it.hasNext()) {
-            Book book = (Book)it.next();
-            System.out.println(book.getName());
+    public static void main(String[] arags) throws IOException {
+        InputStreamReader isr = new InputStreamReader(System.in);
+        BufferedReader br = new BufferedReader(isr);
+        System.out.println("確認したいデザインパターンを入力してください。");
+        String str = null;
+        str = br.readLine();
+
+        switch (str) {
+            case "iterator":
+            IteratorStr iteratorStr = new IteratorStr();
+                break;
+        
+            default:
+            System.out.println("そのようなデザインパターンは存在しません。再度実行し直してください");
+                break;
         }
-    }   
+    }
 }
